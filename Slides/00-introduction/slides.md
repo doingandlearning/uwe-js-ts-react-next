@@ -17,11 +17,11 @@ drawings:
   persist: false
 ---
 
-# Node.js Training
+# Next.js Training
 
 Kevin Cunningham
 
-Grab repo at https://github.com/doingandlearning/NodeJS-November
+Grab repo at https://github.com/doingandlearning/uwe-js-ts-react-next
 
 ---
 
