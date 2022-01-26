@@ -58,8 +58,8 @@ Grab repo at https://github.com/doingandlearning/uwe-js-ts-react-next
 
 # A bit about you
 
-- What your programming background is
-- What your role is
+- Your role
+- Your programming and JavaScript experience
 - What you're hoping to get out of this course
 
 ---

@@ -24,15 +24,6 @@ drawings:
 
 ---
 
-# Morning 👋🏻
-
-While you get comfortable, can you:
-
-- Pull the latest changes from our repo
-- Think about your biggest takeaway/question from Monday
-
----
-
 By the end of this section, you should be able to:
 
 - Understand native asynchronous primitives.
@@ -109,9 +100,8 @@ readFile(bigFile, (err, contents) => {
 <p v-click>Serial execution is achieved by waiting for the callback before starting the next async operation.</p>
 
 ---
-
-## layout: two-cols
-
+layout: two-cols
+---
 ## What if we want all of the contents of each file to be concatenated?
 
 ::right::
@@ -144,8 +134,8 @@ readFile(bigFile, (err, contents) => {
 ```
 
 ---
-
-## layout: two-cols
+layout: two-cols
+---
 
 # What about an unknown amount of async operations?
 
@@ -182,44 +172,8 @@ read(files[index]);
 ```
 
 ---
-
-## layout: two-cols
-
-# fastseries
-
-<p>Callback-based serial execution can become quite complicated, quite quickly.</p>
-<p>Using a small library to help with complexity is advised.</p>
-
-::right::
-
-```js {all|13-20|14|16|17|22|all}
-const { readFile } = require("fs");
-const series = require("fastseries")();
-const files = Array.from(Array(3)).fill(__filename);
-
-const print = (err, data) => {
-  if (err) {
-    console.error(err);
-    return;
-  }
-  console.log(Buffer.concat(data).toString());
-};
-
-const readers = files.map((file) => {
-  return (_, cb) => {
-    readFile(file, (err, contents) => {
-      if (err) cb(err);
-      else cb(null, contents);
-    });
-  };
-});
-
-series(null, readers, null, print);
-```
-
+layout: two-cols
 ---
-
-## layout: two-cols
 
 # Promises
 
@@ -253,8 +207,8 @@ function myAsyncOperation() {
 ```
 
 ---
-
-## layout: two-cols
+layout: two-cols
+---
 
 ---
 

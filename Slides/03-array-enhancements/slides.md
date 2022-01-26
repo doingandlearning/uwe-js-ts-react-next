@@ -52,9 +52,8 @@ for creating an array
 - Array.of() - create from a series of values
 
 ---
-
-## layout: two-cols
-
+layout: two-cols
+---
 # Using Array.from
 
 You can use Array.from() to create an array from
@@ -343,7 +342,6 @@ A typed array doesn't store the data inside itself
 - It has a buffer property, points to an ArrayBuffer
 - The ArrayBuffer stores the raw data
 
-![Array image](https://cleanshot-cloud-fra.s3.eu-central-1.amazonaws.com/media/28179/B7T0xGxw2H3HKVF9DXx3E1ligGpdbGcizE911xA8.jpeg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEO7%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaDGV1LWNlbnRyYWwtMSJGMEQCIDk7zElIu9V1EeZ3KgZ2D2SSyjn4ZOowlwTwTSttoEK7AiBf9bPccY%2B6WbOF9OJTLbEDb6Cz3tCuvejfenfG0CIYqCqhAggXEAAaDDkxOTUxNDQ5MTY3NCIMRZX4ydZL7q0VNn61Kv4B5KWwD0qYiTLsSF94QPofB7EYNWwT8GfIjkxyzFIQ7jxHpOyyMFkrDhfh0NhVquXVlnxuAprPB0PsF52zXnzJGQ9XVrHgcjZk%2Bddjfq%2FI6WkncI8MyrJS%2FFUEMq3Zfmb%2FCbeK0bBb7MAAuQxX6DklGlXJkTDF5Oikgs%2Fy6JffM1jn%2BhDKDJQ3ip62FAy%2FlCGCLSjLdwzrxkzX662l6m9M9So9smDZ1Ezk3jCTSfRF3Bkr%2FK11OLA7hKvYHfzChwPhTHbIf2t8L4obaXeltmJXMJY73KmJnMFrlNDcjgD5j8%2BoJrytADJ0fOtU0lo%2FxZDVc7QwnDy26t4qmE89fwQwvc%2BljwY6mwFobe88j6mCDEf8E0t3zNB2Tieelsi1CoExH3BQ1z2yhY%2BAynf9%2B2XJdgN8oLepCub22HS%2F8MQFjL993%2Fk3wKyB5kUHE%2FbeUYoWaCpoGy3oEIocWcf9ngZdCHg5buKq0ysZIRsLJVJAIgT0YmTrjz5ftVeqWUA%2FeuiLRoDpB0oJm%2FR66oddN7Ds%2BjJV%2B3%2Bl9iGKo8JjVUENLM1v9g%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5MF2VVMNNEXQHCPM%2F20220120%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20220120T135246Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Signature=e52a79d9aa7f0b67926770580ba44b94dc064b4fc01b8371d4f9bf7600c769ff)
 
 ---
 
