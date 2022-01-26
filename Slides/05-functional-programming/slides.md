@@ -24,8 +24,20 @@ drawings:
 
 ---
 
-# 1. What is functional programming?
+# Morning 👋🏻
 
+<p></p>
+
+As we get ready to start, could you:
+
+- Get a copy of the updates for today from our Git repository (https://github.com/doingandlearning/uwe-js-ts-react-next)
+- Reflect on yesterday:
+  - What's one thing that surprised/interested you?
+  - What's one thing that confuses/intrigutes you?
+
+---
+
+# 1. What is functional programming?
 # 2. Why JavaScript works well with functional programming
 
 ---
@@ -57,9 +69,7 @@ sayHello(getWorld);
 ```
 
 ---
-
 layout: two-cols
-
 ---
 
 # Higher order functions
