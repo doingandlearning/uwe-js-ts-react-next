@@ -1,0 +1,12 @@
+[
+    {
+        "retailerName": "Acme Incorporated",
+        "products": [ "Irish rugby shirt", "Space Marine", "Necron", "55in OLED HDTV" ],
+        "shops": [ "London", "NY" ] 
+    },
+    {
+        "retailerName": "Mountains'R'Us",
+        "products": [ "Ultra light tent", "Jet boiler" ],
+        "shops": [ "Val d'Isere", "St. Anton", "Kitzbuhel" ]
+    }
+]

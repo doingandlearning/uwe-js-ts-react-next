@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JSX Example 5</title>
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <link rel="stylesheet" href="example5.css" />
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      const retailersData = [
+        {
+          retailerName: "Acme Incorporated",
+          products: [
+            {
+              description: "Irish rugby shirt",
+              price: 53.0,
+              unitsInStock: 501,
+            },
+            {
+              description: "Space Marine",
+              price: 1.99,
+              unitsInStock: 29000,
+            },
+            { description: "Necron", price: 4000000, unitsInStock: 5 },
+            { description: "55in OLED HDTV", price: 1500, unitsInStock: 25 },
+          ],
+          shops: [
+            { city: "London", country: "UK" },
+            { city: "New York", country: "USA" },
+            { city: "Paris", country: "France" },
+          ],
+        },
+        {
+          retailerName: "Mountains'R'Us",
+          products: [
+            { description: "Ultra light tent", price: 350.0, unitsInStock: 1000 },
+            { description: "Jet boiler", price: 170.5, unitsInStock: 700 },
+          ],
+          shops: [
+            { city: "Val d'Isere", country: "France" },
+            { city: "St. Anton", country: "Austria" },
+            { city: "Kitzbuhel", country: "Austria" },
+          ],
+        },
+      ];
+
+      function Retailer({ retailerName, products, shops }) {
+        return (
+          <fieldset>
+            <legend>{retailerName}</legend>
+
+            <h4>Products</h4>
+            <ul className="products">
+              {products.map((p, i) => (
+                <li key={i}> {p.description} </li>
+              ))}
+            </ul>
+
+            <h4>Shops</h4>
+            <ul className="shops">
+              {shops.map((s, i) => (
+                <li key={i}> {s.city} </li>
+              ))}
+            </ul>
+          </fieldset>
+        );
+      }
+
+      function App({ title, retailers }) {
+        return (
+          <React.Fragment>
+            <h1 className="red">{title}</h1>
+            {retailers.map((r, i) => (
+              <Retailer key={i} {...r} />
+            ))}
+          </React.Fragment>
+        );
+      }
+
+      ReactDOM.render(
+        <App title="Totally Awesome Retailers" retailers={retailersData} />,
+        document.getElementById("root")
+      );
+    </script>
+  </body>
+</html>

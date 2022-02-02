@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Property Types 1</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/prop-types/prop-types.js"></script>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+
+    <script type="text/babel">
+      function validAge(props, propName) {
+        if (typeof props[propName] !== "number") {
+          throw new Error("Must be a number because ... ");
+        }
+        if (props[propName] > 120) {
+          throw new Error("Max value is 120");
+        }
+      }
+
+      class Person extends React.Component {
+        static propTypes = {
+          name: PropTypes.string,
+          age: validAge,
+          isIrish: PropTypes.bool,
+          skills: PropTypes.array,
+        };
+
+        render() {
+          const { name, age, isIrish = false, skills = [] } = this.props;
+          return (
+            <div>
+              <h1>{name}</h1>
+              <div>Age: {age}</div>
+              <div>Nationality: {isIrish ? "Irish" : "Not Irish"}</div>
+              <div>
+                Skills:
+                {skills.map((skill, i) => (
+                  <span key={i}> {skill}</span>
+                ))}
+              </div>
+            </div>
+          );
+        }
+      }
+
+      ReactDOM.render(
+        <Person
+          name="John Evans"
+          age={21}
+          isIrish={false}
+          skills={["React", "Angular", "HTML", "Skiing"]}
+        />,
+        document.getElementById("root")
+      );
+    </script>
+  </body>
+</html>
