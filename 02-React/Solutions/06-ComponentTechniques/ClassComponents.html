@@ -48,7 +48,8 @@
     const films = [
         new Film('Airplane', 'Comedy', 'Classic plane spoof'),
         new Film('Skyfall', 'Adventure', 'Bond spy yarn'),
-        new Film('Love Actually', 'RomCom', ' Hugh Grant playing Hugh Grant')
+        new Film('Love Actually', 'RomCom', ' Hugh Grant playing Hugh Grant'),
+        new Film('Mission Impossible', 'Adventure', ' Hi-octane stunt fest')
     ]
     
     class Library extends React.Component {
@@ -62,7 +63,7 @@
         static defaultProps = {
             tabularFormat: false
         }
-
+        
         render() {
             if (this.props.tabularFormat) {
                 return (
@@ -101,6 +102,25 @@
                 likes: 0
             }
         }
+
+        componentDidMount() {
+            let likesFromLocalStorage = Number(window.localStorage.likes)
+            if (!isNaN(likesFromLocalStorage)) { 
+                console.log(`Read likes=${likesFromLocalStorage} from local storage`)
+                this.setState({likes: likesFromLocalStorage})
+            }
+        }
+            
+        shouldComponentUpdate(nextProps, nextState) {
+            const shouldUpdate = nextState.likes !== this.state.likes
+            console.log(`LikePanel shouldComponentUpdate() is returning ${shouldUpdate}`)			
+            return shouldUpdate
+        }
+
+        componentDidUpdate() {
+            window.localStorage.likes = this.state.likes
+            console.log(`Written likes=${this.state.likes} to local storage`)
+        }       
 
         onLike() {
             this.setState({

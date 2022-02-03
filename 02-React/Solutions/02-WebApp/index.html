@@ -14,6 +14,11 @@
 </head>
 <body>
 
+<div id='root'></div>
+
+<script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+
 <script>
 
     class Book {
@@ -48,9 +53,32 @@
     const films = [
         new Film('Airplane', 'Comedy', 'Classic plane spoof'),
         new Film('Skyfall', 'Adventure', 'Bond spy yarn'),
-        new Film('Love Actually', 'RomCom', ' Hugh Grant playing Hugh Grant')
+        new Film('Love Actually', 'RomCom', ' Hugh Grant playing Hugh Grant'),
+        new Film('Mission Impossible', 'Adventure', ' Hi-octane stunt fest')
     ]
     
+    const bookList = React.createElement(
+        'ul', 
+        null, 
+        books.map((b, i) => React.createElement("li", {key: i, title: b.toString()}, b.title))
+    )
+    
+    const filmList = React.createElement(
+        'ul', 
+        null, 
+        films.map((f, i) => React.createElement("li", {key: i, title: f.toString()}, f.name))
+    )
+    
+    const library = React.createElement('div', null,
+        React.createElement('h1', null, 'My Library'),
+        React.createElement('h2', null, 'Books'),
+        bookList,
+        React.createElement('h2', null, 'Films'),
+        filmList
+    )
+    
+    ReactDOM.render(library, document.getElementById('root'))
+
 </script>
 
 </body>

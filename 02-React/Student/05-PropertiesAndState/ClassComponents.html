@@ -50,53 +50,63 @@
         new Film('Love Actually', 'RomCom', ' Hugh Grant playing Hugh Grant')
     ]
     
-    function ItemsList(props) {
-        const ListTag = props.ordered ? 'ol' : 'ul'
-        return (
-            <ListTag>
-            {
-                props.items.map((item, i) => <li key={i}>{item.toString()} </li> )
-            }
-            </ListTag>
-        )
+    class ItemsList extends React.Component {
+        render() {
+            const ListTag = this.props.ordered ? 'ol' : 'ul'
+            return (
+                <ListTag>
+                {
+                    this.props.items.map((item, i) => <li key={i}>{item.toString()} </li> )
+                }
+                </ListTag>
+            )
+        }
     }
 
-    function Table(props) {
-        return (
-            <table>
-                <TableHead sampleObject={props.items[0]} />
-                <TableBody objects={props.items} />
-            </table>
-        )
+    class Table extends React.Component {
+        render() {
+            return (
+                <table>
+                    <TableHead sampleObject={this.props.items[0]} />
+                    <TableBody objects={this.props.items} />
+                </table>
+            )
+        }
     }
     
-    function TableHead(props) {
-        return (
-            <thead>
-                <TableRow data={Object.keys(props.sampleObject)} head={true} />
-            </thead>
-        )
+    class TableHead extends React.Component {
+        render() {
+            return (
+                <thead>
+                    <TableRow data={Object.keys(this.props.sampleObject)} head={true} />
+                </thead>
+            )
+        }
     }
 
-    function TableBody(props) {
-        return (
-            <tbody>
-            {
-                props.objects.map((obj, i) => <TableRow key={i} data={Object.values(obj)} head={false} />)
-            }
-            </tbody>
-        )
+    class TableBody extends React.Component {
+        render() {
+            return (
+                <tbody>
+                {
+                    this.props.objects.map((obj, i) => <TableRow key={i} data={Object.values(obj)} head={false} />)
+                }
+                </tbody>
+            )
+        }
     }
 
-    function TableRow(props) {
-        const CellTag = props.head ? 'th' : 'td'
-        return (
-            <tr>
-            {
-                props.data.map((d, i) => <CellTag key={i}>{d}</CellTag>)
-            }
-            </tr>
-        )
+    class TableRow extends React.Component {
+        render() {
+            const CellTag = this.props.head ? 'th' : 'td'
+            return (
+                <tr>
+                {
+                    this.props.data.map((d, i) => <CellTag key={i}>{d}</CellTag>)
+                }
+                </tr>
+            )
+        }
     }
 
     const library = 
