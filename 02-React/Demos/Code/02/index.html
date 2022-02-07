@@ -1,57 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>React Application</title>
-	<script src="https://unpkg.com/react@17.0.2/umd/react.development.js"> </script>
-	<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
-</head>
-<body>
-	<div id="root"></div>
-	<script>
-		const people = [
-			"Helen",
-			"Tom",
-			"Peter",
-			"Dave",
-			"Tina",
-			"Krisztina",
-		]
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React Application</title>
+    <script src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+		<style>
+			.red {
+				 background: red;
+			}
+		</style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      const people = [
+        "Helen",
+        "Tom",
+        "Peter",
+        "Dave",
+        "Tina",
+        "Krisztina",
+        "Kevin",
+      ];
 
-		const locations = [
-			"Bristol",
-			"Cardiff",
-			"Dundrum",
-			"Trowbridge"
-		]
-		
+      const locations = ["Bristol", "Cardiff", "Dundrum", "Trowbridge"];
 
-		const peopleListItems = people.map((person) => 	
-		    React.createElement("li", {key: person}, person)
-		)
+      function ListElement({ item }) {
+        // return React.createElement("li", null, item);
+			return <li>{item}</li>
+      }
 
-		const peopleList = React.createElement("ul", null,
-			peopleListItems
-		)
+      function List({ data = [], children }) {
+        const dataListItems = data.map((item) => (
+          <ListElement key={item} item={item} />
+        ));
 
-		const locationListItems = locations.map((location) => 	
-		  React.createElement("li", {key: location}, location)
-		)
+        return (
+          <React.Fragment>
+            <ul>{dataListItems}</ul>
+            {children ? children : null}
+          </React.Fragment>
+        );
+      }
 
-		const locationList = React.createElement("ul", null,
-			locationListItems
-		)
+      function App() {
+        return (
+          <div>
+            <h1>Here are the {people.length} people in the room</h1>
+            <List data={people} others={}>
+              <h2>Hello! I'm here too!</h2>
+            </List>
+            <h1>Here are the places we are</h1>
+            <List data={locations} />
+          </div>
+        );
+      }
 
-		const rootElement = React.createElement("div", null,
-		  React.createElement("h1", null, "Here are the people in the room"),
-			peopleList,
-			React.createElement("h1", null, "Here are the places we are"),
-			locationList
-		)
-
-		ReactDOM.render(rootElement, document.querySelector("#root"))
-	</script>
-</body>
+      ReactDOM.render(<App />, document.querySelector("#root"));
+    </script>
+  </body>
 </html>

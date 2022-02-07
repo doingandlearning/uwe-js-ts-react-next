@@ -10,10 +10,11 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
     </style>
-
+    <script src="https://unpkg.com/react@17.0.2/umd/react.development.js"> </script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
 </head>
 <body>
-
+<div id="root"></div>
 <script>
 
     class Book {
@@ -50,7 +51,29 @@
         new Film('Skyfall', 'Adventure', 'Bond spy yarn'),
         new Film('Love Actually', 'RomCom', ' Hugh Grant playing Hugh Grant')
     ]
+
+    const bookList = React.createElement("ul", null,
+      books.map((book, index) => 
+        React.createElement("li", {key: index, title: book.author}, book.toString())
+      )
+    )
+
+    const filmList = React.createElement("ul", null,
+      films.map((film, index) => 
+        React.createElement("li", {key: index, title: film.toString()}, film.toString())
+      )
+    )
     
+    const rootElement = React.createElement("div", null, 
+      React.createElement("h1", null, "My Library"),
+      React.createElement("h2", null, "Books"),
+      bookList,
+      React.createElement("h2", null, "Films"),
+      filmList
+    )
+
+    ReactDOM.render(rootElement, document.querySelector("#root"))
+
 </script>
 
 </body>
