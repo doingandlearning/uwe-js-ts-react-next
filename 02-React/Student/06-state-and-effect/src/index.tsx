@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import App from "./exercises/exercise4-solution"
+import App from "./exercises/exercise1"
 
 ReactDOM.render(
   <React.StrictMode>

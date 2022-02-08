@@ -1,4 +1,11 @@
+Before you start, go to Student\03-page-rendering-and-data and run `npm install`.
+
 1. Add Static Site Generation on the home page
+- Update pages/index.js
+- Add getStaticProps
+- Emit the props and receive them in the component
+- Refactor the component to use the data
+- Remove the call to get the data from there.
 
 2. Loading data & paths for dynamic pages
 
