@@ -1,15 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
+import { MusicPlayerContext } from "../context/AppContext";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faPause } from "@fortawesome/free-solid-svg-icons";
 
 function TrackList() {
+	const [state, setState] = useContext(MusicPlayerContext)
+	console.log(state)
 	// const { trackList, currentTrackName, playTrack, isPlaying } = useMusicPlayer();
-	const trackList: any[] = []
+	const trackList: { name: string }[] = state.tracks
 
 	const currentTrackName = ""
 	const playTrack = (track: number) => { }
-	const isPlaying = true
+	const isPlaying = state.isPlaying
 
 	return (
 		<>
