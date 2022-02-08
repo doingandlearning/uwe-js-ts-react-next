@@ -139,7 +139,8 @@ function Switch({on, onToggle}) {
 - [Hook lifecycle](https://wavez.github.io/react-hooks-lifecycle/)
 
 --- 
-
+layout: two-cols
+---
 # useEffect
 
 > The effect hook lets you perform side effects in function components.
@@ -164,6 +165,8 @@ function Example() {
   );
 }
 ```
+
+::right::
 
 What are effects, really? Examples are:
 
