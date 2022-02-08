@@ -143,21 +143,17 @@ So you must arrange your routes from specific to general
 
 ::right::
 
-```
-import { Switch, Route } from 'react-router-dom';
+```js
+import { Routes, Route } from 'react-router-dom';
 …
 function App() {
   return (
     <div>
-      <Switch>
-        <Route path="/products">
-          <Products />
-        </Route>
+      <Routes>
+        <Route path="/products" element={<Products />}>
         …
-        <Route path="/" >
-          <Home />
-        </Route>        
-      </Switch>
+        <Route path="/" element={<Home />}>
+      </Routes>
     </div>
   );
 }
@@ -231,76 +227,15 @@ export default Home;
 
 ---
 
-# Recap Path Matching in Previous Demo
-
-In the previous demo we defined our route table like so
-
-```
-<Switch>
-  <Route path="/products">
-    <Products />
-  </Route>
-  …
-  <Route path="/">
-    <Home />
-  </Route>
-</Switch>
-```
-
-As we pointed out, React Router matches paths by saying "does the path start with this"
-- So you have to put specific paths before general paths
-
----
-
-# Exact Path Matching
-
-A better approach is to specify exact paths as follows:
-
-```
-<Switch>
-  <Route exact path="/">
-    <Home />
-  </Route>
-  …
-  <Route path="/contact">
-    <Contact />
-  </Route>
-</Switch>
-```
-
-This means you can define your route table entries in any order you like ☺
-
----
-
-# Redirecting Paths
-
-You can redirect paths to different paths - like an alias
-
-```
-<Switch>
-  <Route path="/catalog">
-    <Redirect to="/products" />
-  </Route>
-  <Route path="/products">
-    <Products />
-  </Route>
-  …
-</Switch>
-```
-
----
-
 # Handling 404 Errors (1 of 2)
 
 You can handle 404 errors as follows:
 
 ```
-<Switch>
+<Routes>
   …
-  <Route path="*">
-    <PageNotFound />
-  </Route>
-</Switch>
+  <Route path="*" element={ <PageNotFound />}>
+</Routes>
 ```
 
 See the PageNotFound component on next slide
@@ -458,15 +393,9 @@ Here's part of the route table
 - /products/:id - Display product with specified id
 
 ```
-<Switch>
-
-  <Route path="/products">
-    <Products />
-  </Route>
-
-  <Route path="/product/:id">
-    <Product />
-  </Route>
+<Routes>
+  <Route path="/products" element={ <Products />} />
+  <Route path="/product/:id" element={ <Product />}>
   …
  </div>
 ```
