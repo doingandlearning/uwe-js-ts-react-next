@@ -2,10 +2,10 @@ import React from "react";
 import './PageNotFound.css'
 
 function PageNotFound() {
-    return (
+	return (
 		<div className="pagenotfound">
-			Implement PageNotFound component UI here!
+			{window.location.pathname} is not found.
 		</div>
-    )
+	)
 }
 export default PageNotFound;

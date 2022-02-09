@@ -1,18 +1,31 @@
 Before you start, go to Student\03-page-rendering-and-data and run `npm install`.
 
-1. Add Static Site Generation on the home page
+## Exercise 1: Home Page
+
+Refactor the home page to use getStaticProps
 - Update pages/index.js
 - Add getStaticProps
 - Emit the props and receive them in the component
 - Refactor the component to use the data
 - Remove the call to get the data from there.
 
-2. Loading data & paths for dynamic pages
+# Exercise 2: Event Detail Page
 
-3. Optimizing data fetching
+Refactor the /events/[id] page to use getStaticProps.
 
-4. Working on the "All Events" page
+- Receive the id from the context
+- Get the correct event from the data store
+- Pass the props through to the page component
+- Display
 
-5. Using SSR
+# Exercise 3: Working on the "All Events" page
+Refactor the /events/index.js page to use getStaticProps.
 
-6. Adding client-side data fetching
+- Get all of the events from the data store
+- Pass the props through to the page component
+- Add an appropriate revalidate option here
+# Exercise 5: Using SSR
+Refactor the /events/[...slug].js page to use getServerSideProps
+
+- Move the fetching logic into getServerSideProps section
+- Pass the props through to the page component
