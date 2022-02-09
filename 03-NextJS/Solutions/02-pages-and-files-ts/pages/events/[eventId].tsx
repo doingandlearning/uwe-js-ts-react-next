@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import { useRouter } from 'next/router';
+import { GetStaticPaths, GetStaticProps, NextPage } from "next"
 
 import { getEventById } from '../../data/dummy-data';
 import EventSummary from '../../components/event-detail/event-summary';
@@ -7,11 +7,8 @@ import EventLogistics from '../../components/event-detail/event-logistics';
 import EventContent from '../../components/event-detail/event-content';
 import ErrorAlert from '../../components/ui/error-alert';
 
-function EventDetailPage() {
-  const router = useRouter();
+const EventDetailPage: NextPage<EventPageProps> = ({ event }) => {
 
-  const eventId = router.query.eventId;
-  const event = getEventById(eventId);
 
   if (!event) {
     return (
@@ -36,5 +33,47 @@ function EventDetailPage() {
     </Fragment>
   );
 }
+
+interface Event {
+  id: string,
+  title: string,
+  description: string,
+  location: string,
+  date: string,
+  image: string,
+  isFeatured: boolean,
+}
+
+interface EventPageProps {
+  event: Event
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const paths = [
+    { params: { eventId: "e1" } },
+    { params: { eventId: "e2" } },
+    { params: { eventId: "e3" } },
+  ]
+  return {
+    paths,
+    fallback: true
+  }
+}
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  const eventId = context?.params?.eventId;
+
+  if (!eventId) {
+    return { notFound: true }
+  }
+
+  const event = getEventById(eventId);
+
+  return {
+    props: { event },
+    revalidate: 1000
+  }
+}
+
 
 export default EventDetailPage;
