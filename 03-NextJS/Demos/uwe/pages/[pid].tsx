@@ -4,9 +4,9 @@ import path from "path"
 import Error from "next/error"
 
 const HomePage: NextPage<ProductProps> = ({ product }) => {
-	if (!product) {
-		<Error statusCode={404} />
-	}
+	// if (!product) {
+	// 	<Error statusCode={404} />
+	// }
 
 	return (
 		<ul>

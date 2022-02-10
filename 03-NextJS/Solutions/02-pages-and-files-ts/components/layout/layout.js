@@ -1,13 +1,15 @@
-import { Fragment } from 'react';
+import { Fragment } from "react";
 
-import MainHeader from './main-header';
+import MainHeader from "./main-header";
 
-function Layout(props) {
-  return (
+function Layout({ authedUser = null }) {
+  return authedUser ? (
     <Fragment>
       <MainHeader />
       <main>{props.children}</main>
     </Fragment>
+  ) : (
+    <div>You need to log in</div>
   );
 }
 

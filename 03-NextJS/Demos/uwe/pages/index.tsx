@@ -2,24 +2,24 @@ import type { NextPage, GetStaticProps, InferGetStaticPropsType } from "next";
 import fs from "fs/promises"
 import path from "path"
 import Link from "next/link"
+import Head from "next/head"
 
 const HomePage: NextPage<ProductProps> = ({ products }) => {
 	return (
-		<ul>
-			{products.map(item =>
-				<li key={item.id}>
-					<Link href={`/${item.id}`}>{item.title}</Link>
-				</li>)}
-		</ul>
+		<>
+			<Head>
+				<title>Product Page</title>
+			</Head>
+			<ul>
+				{products.map(item =>
+					<li key={item.id}>
+						<Link href={`/${item.id}`}>{item.title}</Link>
+					</li>)}
+			</ul>
+		</>
 	)
 }
-// const HomePage: NextPage = ({ products }: InferGetStaticPropsType<typeof getStaticProps>) => {
-// 	return (
-// 		<ul>
-// 			{products.map(item => <li key={item.id}>{item.title}</li>)}
-// 		</ul>
-// 	)
-// }
+
 
 interface Product { id: string, description: string, title: string }
 interface ProductProps { products: Product[] }
