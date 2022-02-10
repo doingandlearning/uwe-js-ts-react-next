@@ -1,12 +1,14 @@
 import type { NextPage, GetStaticProps } from 'next'
 import { getFeaturedEvents } from "../data/dummy-data"
 import EventList from "../components/events/event-list"
+import NewsletterRegistration from '../components/newsletter'
 
 const Home: NextPage<EventProps> = ({ events }) => {
 
   return (
     <div>
       <EventList items={events} />
+      <NewsletterRegistration />
     </div>
   )
 }
