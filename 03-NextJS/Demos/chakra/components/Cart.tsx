@@ -75,4 +75,4 @@ function Cart() {
 	</VStack>
 }
 
-export default Cart color = { secondaryText }
+export default Cart 
